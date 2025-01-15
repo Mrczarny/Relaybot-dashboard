@@ -1,0 +1,20 @@
+hr {
+    height: 1px;
+    background-color: #ccc;
+}
+
+.bot-minicard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    ion-card-content {
+        padding-top: 13px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+    ion-thumbnail {
+        --border-radius: 14px;
+    }
+}
+

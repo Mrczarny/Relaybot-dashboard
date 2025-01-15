@@ -9,6 +9,23 @@
       <ion-row class="ion-justify-content-center">
         <ion-col size="8">
           <ion-row>
+            <ion-col size="12">
+              <h1>Currently watching bot: {{signalrService.botdata?.botId}}
+                @if (signalrService.liveData) {
+                  <ion-text color="success">
+                    <h1>Live data</h1>
+                  </ion-text>
+                }
+                @else {
+                  <ion-text color="danger">
+                    <h1>Offline</h1>
+                  </ion-text>
+                }
+              </h1>
+              <hr>
+            </ion-col>
+          </ion-row>
+          <ion-row>
             <ion-col class="ion-text-center" size="3"><ion-title class="ion-margin-bottom">Line sensor</ion-title>
               <ion-card class="ion-margin-top">
                   <h3>Bot is currently:</h3>
@@ -87,6 +104,57 @@
         </ion-col>
       </ion-row>
 
+    </ion-grid>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="8">
+          <ion-row>
+            <ion-col size="12">
+              <h1>Available bots:</h1>
+              <hr>
+            </ion-col>
+            <ion-col size="4">
+              <ion-card class="bot-minicard" (click)="changeBot(1)">
+                <ion-card-header>
+                  <ion-card-subtitle>Bot number: 1</ion-card-subtitle>
+                  <ion-card-title>Line Follower</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-thumbnail slot="start">
+                    <img alt="Silhouette of mountains" src="../assets/3.jpg" />
+                  </ion-thumbnail>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col size="4">
+              <ion-card class="bot-minicard" (click)="changeBot(2)">
+                <ion-card-header>
+                  <ion-card-subtitle>Bot number: 2</ion-card-subtitle>
+                  <ion-card-title>Line Maze Solver</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-thumbnail slot="start">
+                    <img alt="Silhouette of mountains" src="../assets/1.jpg" />
+                  </ion-thumbnail>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col size="4">
+              <ion-card class="bot-minicard" (click)="changeBot(3)">
+                <ion-card-header>
+                  <ion-card-subtitle>Bot number: 3</ion-card-subtitle>
+                  <ion-card-title>Physical Maze Solver</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-thumbnail slot="start">
+                    <img alt="Silhouette of mountains" src="../assets/2.jpg" />
+                  </ion-thumbnail>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
     </ion-grid>
   </ion-content>
 </ion-app>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SignalrService } from './signalr.service';
+import { HttpClient } from '@microsoft/signalr';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { SignalrService } from './signalr.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
   title = 'dashboard';
   data = this.signalrService.botdata;
   rightMotor: () => boolean[] = () => this.setMotorSpeed(this.signalrService.botdata?.motorsSpeed ?? 0);
@@ -19,7 +21,11 @@ export class AppComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    
+    this.changeBot(1);
+  }
+
+  changeBot(botId: number) {
+    this.signalrService.changeBot(botId);
   }
 
   private setMotorSpeed(speed: number): boolean[] {
